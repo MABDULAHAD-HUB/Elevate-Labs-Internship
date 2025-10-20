@@ -14,8 +14,8 @@ Nmap, Wireshark
 ## Files included
 - discovery.txt
 - scan_basic.txt
-- screenshots/ss1.png (nmap scan screenshot)
-- screenshots/ss2.png (Wireshark screenshot)
+- screenshots/namp_scan.png (nmap scan screenshot)
+- screenshots/wireshark_scan.png (Wireshark screenshot)
 
 ## Short interview answers
 Q1: What is an open port?  
