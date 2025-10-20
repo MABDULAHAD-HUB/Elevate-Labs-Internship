@@ -1,0 +1,9 @@
+# Nmap 7.95 scan initiated Mon Oct 20 06:24:04 2025 as: /usr/lib/nmap/nmap --privileged -sS -oN scan_basic.txt 192.168.56.x
+Nmap scan report for 192.168.56.x
+Host is up (0.00052s latency).
+Not shown: 999 filtered tcp ports (no-response)
+PORT     STATE SERVICE
+7070/tcp open  realserver
+MAC Address:  (Unknown)
+
+# Nmap done at Mon Oct 20 06:24:24 2025 -- 1 IP address (1 host up) scanned in 19.81 seconds
