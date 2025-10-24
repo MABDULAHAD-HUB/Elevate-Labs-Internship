@@ -1,50 +1,97 @@
 # Task 2 — Analyze a Phishing Email Sample
 
-**Date:** 2025-10-22
+**Date:** 2025-10-22   
 
 ## Sample Used
+- Phishing email file: `Phishing-sample.eml`
 - Phishing screenshot: `Phishing-sample.png`
 
+---
 
-## Phishing Indicators Found (short)
-- **Fake sender email** — `outlooo.teeam@outlook.com` (typos / extra characters).  
-- **Generic greeting** — “Dear Outlook user” (not personalized).  
-- **Urgency / pressure** — Claims “blocked incoming mails” and forces verification.  
-- **Suspicious verification link** — `http://spapparelsindia.in/Aprons/outlook.com/login.html` (non-Microsoft domain).  
-- **Domain mismatch** — Link domain unrelated to Microsoft.  
-- **Brand impersonation** — Uses Outlook/Microsoft logo and wording to appear legitimate.  
-- **Grammar / formatting errors** — Unprofessional text and punctuation issues.
+## Evidence Screenshots
+| Tool Used | Screenshot |
+|------------|------------|
+| EML Analyzer (Email Header Analysis) | `EML_Analyzer.png` |
+| Google Admin Toolbox - Message Header Analyzer | `Google_Admin_Toolbox.png` |
+| VirusTotal - Domain/IP/URL Reputation Check | `virus_total.png` |
+| MXToolbox - Email Header & DNS Check | `Mxtoolbox.png` |
 
-## Quick Actions / Recommendations
-1. **Do not click** the link or open attachments.  
-2. **Report** the email to your IT/security team or email provider.  
-3. **If clicked or credentials entered:** immediately change password from a known-good device and enable MFA.  
-4. **Preserve evidence** (screenshot/raw headers) for reporting.
+---
 
-## Short interview answers
-Q1: What is phishing?  
-A: Phishing is a cyberattack where fake emails, messages, or websites are used to trick people into revealing sensitive information like passwords, banking data, or personal details.
+## Email Header Details
 
-Q2: How to identify a phishing email?  
-A: Look for suspicious sender addresses, spelling or grammar errors, urgent or threatening language, fake links, unexpected attachments, and mismatched domains.
+**From (display & envelope):**  
+- Display name (`From:`): `Microsoft account team ,_<no-reply@access-accsecurity.com>`  
+- Envelope sender (`Return-Path:`): `bounce@thcultarfdes.co.uk`  
+- Sending IP (`X-Sender-IP`): `89.144.44.2`
 
-Q3: What is email spoofing?  
-A: Email spoofing is the act of forging the sender's address to make an email appear to come from a trusted source, like a bank or company, to deceive the receiver.
+**To:**  
+- `phishing@pot`
 
-Q4: What should you do on receiving such an email?  
-A: Do not interact, report it, and verify via official channels.
+**Reply-To (Suspicious):**  
+- `sotrecognizd@gmail.com`
 
-Q5: Why are phishing emails dangerous?  
-A: They can steal login credentials, financial data, install malware, take over accounts, or lead to identity theft and financial loss.
+---
 
-Q6: How can you verify the sender’s authenticity?  
-A: Check the domain of the email address, inspect email headers, hover over links to verify URLs, contact the sender through official channels, and check SPF/DKIM/DMARC validation.
+## Suspicious Links / URLs Found
+| Type | URL |
+|------|-----|
+| Fake Reply Link | `mailto:sotrecognizd@gmail.com?&cc=sotrecognizd@gmail.com&Subject=Report+The+User` |
+| Malicious Contact Link | `mailto:sotrecognizd@gmail.com?&cc=sotrecognizd@gmail.com&subject=unusual signin activity&body=Report The User` |
+| Fake Unsubscribe Link | `mailto:sotrecognizd@gmail.com?&cc=sotrecognizd@gmail.com&Subject=Unsubscribe+me` |
+| Tracking Pixel | `http://thebandalisty.com/track/o43062rdzGz18708448Gdrw1821750fYo33632dSjh176` |
 
-Q7: What tools can analyze email headers?  
-A: Tools like MXToolbox Header Analyzer, Google Message Header Tool, MessageHeader, or built-in commands like whois, nslookup, and dig.
+**Other malicious domains observed:**
+- `access-accsecurity.com`
+- `thcultarfdes.co.uk`
+- `thebandalisty.com`
 
-Q8: How do attackers use social engineering in phishing?  
-A: They manipulate emotions like fear, urgency, curiosity, or trust to trick users into acting quickly—like clicking malicious links or giving their passwords.
+**SPF/DMARC Failure:**
+- `Received-SPF: None`
+- No DKIM signature
+- DMARC verification failed
 
+---
+
+## Phishing Indicators Found
+- ⚠️ **Fake sender identity** pretending to be Microsoft  
+- ⚠️ **Free Gmail reply-to** used for data theft  
+- ⚠️ **Tracking pixel** to collect victim IP and device info  
+- ⚠️ **Urgent phishing message** asking for account verification  
+- ⚠️ **External redirection links** to unknown domains  
+- ⚠️ **Grammar errors & bad layout**  
+- ⚠️ **No email authentication** (SPF/DKIM/DMARC failed)  
+
+---
+
+
+## Interview Questions (Short Answers)
+
+**Q1. What is phishing?**  
+A cyberattack using fake emails/webpages to steal sensitive data like passwords or OTPs.
+
+**Q2. How to identify a phishing email?**  
+Check sender email, link URLs, grammar, urgency, domain mismatch, and header data.
+
+**Q3. What is email spoofing?**  
+Fake email headers are used to impersonate a trusted sender.
+
+**Q4. What should you do if you get a phishing email?**  
+Don’t interact, report it, and verify from the official website.
+
+**Q5. Why is phishing dangerous?**  
+Can lead to account takeover, money loss, and data theft.
+
+**Q6. How to verify email sender authenticity?**  
+Check SPF/DKIM/DMARC, email headers, official sources.
+
+**Q7. Tools used for analysis?**  
+- Google Admin Toolbox  
+- MXToolbox  
+- VirusTotal  
+- EML Analyzer  
+
+**Q8. How do attackers trick users?**  
+Using urgency, fear, fake warnings, impersonation, and emotional manipulation.
 
 
